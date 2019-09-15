@@ -1,16 +1,16 @@
 import React from 'react'
+import Provider from './stores'
 import Footer from './components/Footer.jsx'
-import AddTodo from './containers/AddTodo.jsx'
-import VisibleTodoList from './containers/VisibleTodoList.js'
-
+import AddTodo from './components/AddTodo.jsx'
+import TodoList from './components/TodoList.jsx'
 
 function App() {
   return (
-    <div className="App">
+    <Provider>
       <AddTodo />
-      <VisibleTodoList />
+      <TodoList />
       <Footer />
-    </div>
+    </Provider>
   )
 }
 

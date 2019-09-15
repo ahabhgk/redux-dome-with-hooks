@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { VisibileFilterContext } from '../stores/VisibileFilter.jsx'
+import { setVisibilityFilter } from '../actions'
 
-const Link = ({ children, active, onClick }) => (
-  <button
-    onClick={onClick}
-    disabled={active}
-    style={{
-      marginLeft: '4px'
-    }}
-  >
-    {children}
-  </button>
-)
+const Link = ({ children, filter }) => {
+  const { dispatch } = useContext(VisibileFilterContext)
+
+  return (
+    <button
+      onClick={() => dispatch(setVisibilityFilter(filter))}
+      style={{
+        marginLeft: '4px'
+      }}
+    >
+      {children}
+    </button>
+  )
+}
 
 export default Link
